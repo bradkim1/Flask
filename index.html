@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+        <title>Bar Chart Generator</title>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Bar Chart Generator</h1>
+            <form method="POST">
+                <label for="categories">Categories (comma separated):</label><br>
+                <input type="text" id="categories" name="categories"><br><br>
+                <label for="values">Values (comma separated):</label><br>
+                <input type="text" id="values" name="values"><br><br>
+                <input type="submit" value="Generate Chart">
+            </form>
+            <div class="chart">
+                {% if chart %}
+                    <img src="data:image/png;base64,{{ chart }}">
+                {% endif %}
+            </div>
+        </div>
+    </body>
+    </html>
